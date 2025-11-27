@@ -34,7 +34,7 @@
             T leftSide = a.Subtract(b);
             Console.WriteLine("a = " + a);
             Console.WriteLine("b = " + b);
-            Console.WriteLine("a - b = " + leftSide); // Вивід Лівої Частини
+            Console.WriteLine("a - b = " + leftSide); 
 
             Console.WriteLine(" = = = ");
 
@@ -58,15 +58,15 @@
             try
             {
                 rightSide = numerator.Divide(denominator);
-                Console.WriteLine("(a^2 - b^2) / (a + b) = " + rightSide); // Вивід Правої Частини
+                Console.WriteLine("(a^2 - b^2) / (a + b) = " + rightSide); 
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Ділення: ПОПЕРЕДЖЕННЯ. Виняток 'Ділення на нуль' коректно спрацював.");
+                Console.WriteLine("Division: WARNING. The 'Division by zero' exception was raised correctly.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ділення: ПОМИЛКА. Виникла несподівана помилка: " + ex.Message);
+                Console.WriteLine("Division: ERROR. An unexpected error occurred.: " + ex.Message);
             }
 
             Console.WriteLine("=== Finishing testing (a^2-b^2)/(a+b) = a-b with a = " + a + ", b = " + b + " ===\n");
@@ -75,21 +75,16 @@
         {
             Console.WriteLine("\n=== Starting testing IComparable implementation for type " + typeof(T).Name + " ===");
 
-            // Виводимо початковий масив
-            Console.WriteLine("Початковий масив:");
+            Console.WriteLine("Initial array:");
             Console.WriteLine(string.Join(", ", data));
 
-            // Виконуємо сортування, яке вимагає реалізації CompareTo
             try
             {
                 Array.Sort(data);
 
-                // Виводимо відсортований масив
-                Console.WriteLine("Відсортований масив:");
+                Console.WriteLine("Sorted array:");
                 Console.WriteLine(string.Join(", ", data));
 
-                // Ми не можемо знати правильний порядок, але можемо перевірити,
-                // чи сортування не порушило порядок для сусідніх елементів.
                 bool isSorted = true;
                 for (int i = 0; i < data.Length - 1; i++)
                 {
@@ -103,16 +98,16 @@
 
                 if (isSorted)
                 {
-                    Console.WriteLine("Статус: OK. Масив відсортовано коректно (a <= b).");
+                    Console.WriteLine("Status: OK. Array sorted correctly (a <= b).");
                 }
                 else
                 {
-                    Console.WriteLine("Статус: ПОМИЛКА. Масив відсортовано не коректно.");
+                    Console.WriteLine("Status: ERROR. Array isn't sorted correctly.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Статус: ПОМИЛКА. Виник виняток під час сортування: {ex.Message}");
+                Console.WriteLine($"Status: ERROR. An exception occurred while sorting.: {ex.Message}");
             }
 
             Console.WriteLine("=== Finishing testing IComparable implementation ===\n");

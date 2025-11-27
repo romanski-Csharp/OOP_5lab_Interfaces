@@ -36,7 +36,7 @@ namespace OOP_5lab_Interfaces
             double denom = that.Re * that.Re + that.Im * that.Im;
             if (Math.Abs(denom - 0.0) < 1e-15)
             {
-                throw new DivideByZeroException("Ділення на нуль: Знаменник комплексного числа дорівнює нулю.");
+                throw new DivideByZeroException("Deviding by zero: The denom of a complex number is zero.");
             }
             return new MyComplex((this.Re * that.Re + this.Im * that.Im) / denom,
                                  (this.Im * that.Re - this.Re * that.Im) / denom);
